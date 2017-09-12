@@ -13,6 +13,8 @@ import {
     Actions
 } from 'react-native-router-flux';
 
+import Util from './utils';
+
 const {Surface, Shape, Path} = ART;
 
 export default class Home extends React.Component {
@@ -23,12 +25,8 @@ export default class Home extends React.Component {
     };
 
     render() {
-        const path = ART.Path();
-        path.moveTo(1,1);
-        path.lineTo(300,1);
         return(
             <View style={styles.container}>
-                <Text style={styles.title}>Entry</Text>
                 <TouchableOpacity
                     onPress={() => {
                     // navigate to second screen and to pass it the name
@@ -38,10 +36,11 @@ export default class Home extends React.Component {
                         names: this.state.names,
                     });
                     // alert(this.state.names);
-                }}
+                  }}
+                    style={styles.touchContainer}
                 >
                     <Text style={styles.buttonText}>
-                        ChatApp
+                        0.ChatApp
                     </Text>
                 </TouchableOpacity>
 
@@ -55,9 +54,23 @@ export default class Home extends React.Component {
                     });
                     // alert(this.state.names);
                 }}
+                    style={styles.touchContainer}
                 >
                     <Text style={styles.buttonText}>
-                        Day1-StopWatch
+                        1.Day1-StopWatch
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => {
+                    Actions.day2({
+                        names: this.state.names,
+                    });
+                }}
+                    style={styles.touchContainer}
+                >
+                    <Text style={styles.buttonText}>
+                        2.Day2-Weather
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -80,14 +93,27 @@ var styles = StyleSheet.create({
     },
     buttonText: {
         color: "#0084ff",
-        // marginLeft:20,
+        // width:
         marginTop: 15,
-        fontSize:15,
+        fontSize: 15,
+        textAlign:"left",
     },
     container: {
         // flex:1,
         // backgroundColor:"red",
-        alignItems:'center'
+        alignItems:'center',
+        justifyContent:"center"
+        // textAlign: 'center'
+    },
+    touchContainer: {
+        width: Util.size.width,
+        // alignItems: "flex-start",
+        alignItems: "center",
+        paddingTop: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 5,
+
     }
 })
 
