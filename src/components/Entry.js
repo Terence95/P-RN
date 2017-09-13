@@ -49,6 +49,23 @@ export default class Home extends React.Component {
                     // navigate to second screen and to pass it the name
                     // alert(this.state.name);
                     console.log(this.state.names);
+                    Actions.rnart({
+                        names: this.state.names,
+                    });
+                    // alert(this.state.names);
+                  }}
+                    style={styles.touchContainer}
+                >
+                    <Text style={styles.buttonText}>
+                        0-1.RnArt
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => {
+                    // navigate to second screen and to pass it the name
+                    // alert(this.state.name);
+                    console.log(this.state.names);
                     Actions.day1({
                         names: this.state.names,
                     });
@@ -106,13 +123,14 @@ var styles = StyleSheet.create({
         // textAlign: 'center'
     },
     touchContainer: {
-        width: Util.size.width,
+        // width: Util.size.width-100,
         // alignItems: "flex-start",
         alignItems: "center",
         paddingTop: 5,
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 5,
+        // backgroundColor: "red",
 
     }
 })

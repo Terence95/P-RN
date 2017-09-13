@@ -16,12 +16,12 @@ import {
 import Util from './utils';
 
 
-export default class Day2 extends React.Component {
+export default class Day extends React.Component {
 
     render() {
         return (
             <View>
-                <Text>Day2</Text>
+                <Text>Day21</Text>
             </View>
         )
     }
