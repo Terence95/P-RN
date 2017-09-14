@@ -107,8 +107,8 @@ render () {
     return(
         <View ref={(user) => {this.user = user;}} style={styles.userContainer} {...panProps}>
             <View style={styles.userPanel}>
-                <Image style={[styles.banner,{top: this.state.bannerTop}]} source={{uri:'poincare'}}></Image>
-                <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}]}><Image style={styles.icon} source={{uri:"w3"}}></Image></View>
+                <Image style={[styles.banner,{top: this.state.bannerTop},{zIndex: 100}]} source={{uri:'poincare'}}></Image>
+                <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}, {zIndex: 100}]}><Image style={styles.icon} source={{uri:"w33"}}></Image></View>
                 <View style={styles.userControl}>
                     <TouchableHighlight style={styles.controlIcon}>
                         <Icon name="ios-settings" color="#8999a5" size={20}></Icon>
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     },
     twitterContainer:{
         width: Util.size.width,
-        height: Util.size.height-53,
+        height: Util.size.height-63,
         backgroundColor:"#f5f8fa",
     },
     userContainer:{
@@ -240,7 +240,8 @@ const styles = StyleSheet.create({
         height: Util.size.height-350,
         left:0,
         borderTopWidth:Util.pixel,
-        borderTopColor:"#9eacb6"
+        borderTopColor:"#9eacb6",
+        zIndex:-1000
     },
     userPanel:{
         flex:1,

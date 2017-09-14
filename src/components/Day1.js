@@ -301,7 +301,9 @@ const styles = StyleSheet.create({
         // backgroundColor:"red",
         alignItems:'center',
         // backgroundColor: "#f3f3f3",
-        marginTop: 60,
+        marginTop: 0,
+        height: Util.size.height-63
+
     },
     watchFaceContainer:{
         width: Util.size.width,

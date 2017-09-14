@@ -14,6 +14,7 @@ import Day2 from './components/Day2';
 import Day3 from './components/Day3';
 import Day4 from './components/Day4';
 import Day5 from './components/Day5';
+import Day6 from './components/Day6';
 import RnArt from './components/0-1RN-ART';
 
 
@@ -45,6 +46,7 @@ export default class App extends React.Component {
                     <Scene key="day3" component={Day3} title="Day3"/>
                     <Scene key="day4" component={Day4} title="Day4"/>
                     <Scene key="day5" component={Day5} title="Day5"/>
+                    <Scene key="day6" component={Day6} title="Day6"/>
                     <Scene key="rnart" component={RnArt} title="RnArt"/>
                 </Scene>
             </Router>
