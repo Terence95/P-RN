@@ -108,7 +108,7 @@ render () {
         <View ref={(user) => {this.user = user;}} style={styles.userContainer} {...panProps}>
             <View style={styles.userPanel}>
                 <Image style={[styles.banner,{top: this.state.bannerTop},{zIndex: 100}]} source={{uri:'poincare'}}></Image>
-                <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}, {zIndex: 100}]}><Image style={styles.icon} source={{uri:"w33"}}></Image></View>
+                <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}, {zIndex: 100}]}><Image style={styles.icon} source={require('./img/w33.png')}></Image></View>
                 <View style={styles.userControl}>
                     <TouchableHighlight style={styles.controlIcon}>
                         <Icon name="ios-settings" color="#8999a5" size={20}></Icon>
