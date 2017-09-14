@@ -90,6 +90,32 @@ export default class Home extends React.Component {
                         2.Day2-Weather
                     </Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => {
+                    Actions.day3({
+                        names: this.state.names,
+                    });
+                }}
+                    style={styles.touchContainer}
+                >
+                    <Text style={styles.buttonText}>
+                        3.Day3-swiper
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => {
+                    Actions.day4({
+                        names: this.state.names,
+                    });
+                }}
+                    style={styles.touchContainer}
+                >
+                    <Text style={styles.buttonText}>
+                        4.Day4
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }
