@@ -1,27 +1,65 @@
-/**
- * Day 14
- * Tinder Like Swipe
- * know bugs. simg of png win't change no matter how. Other properties changes fine.
- * but changes to gif works fine
- * Maybe bugs internally
- */
-'use strict';
-
-import React,{ Component } from 'react';
-import { Image,StyleSheet,StatusBar,Text,TouchableHighlight,PanResponder,Animated,LayoutAnimation,View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import Button from 'react-native-button';
+import { Actions } from 'react-native-router-flux';
 import Util from './utils';
-import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class MainControlPanel extends Component {
-    render(){
-        return (
-            <View>
-                <Text>Main Control Panel</Text>
+
+export default class Register extends React.Component {
+    render() {
+        return(
+            <View style={styles.container}>
+                <View style={styles.btnContainer}>
+                    <Button style={styles.btnText} onPress={Actions.pop}>
+                        <Image style={{marginRight:5}} source={require("./images/ios/main/icon_back.png")}/>
+                        Back
+                    </Button>
+                </View>
+                <Image
+                    style={styles.backgroundImage}
+                    source={require('./images/ios/main/Home/bg_zhileng@2x.png')}/>
             </View>
         )
     }
 }
 
-const styles = StyleSheet.create({
 
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        // backgroundColor: '#F5FCFF',
+    },
+    backgroundImage:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center",
+        // width:null,
+        // height:null,
+        resizeMode: Image.resizeMode.contain,
+        // backgroundColor:'rgba(0,0,0,0)',
+        width: Util.size.width,
+        height: Util.size.height,
+        zIndex:-1000
+    },
+    backBtn:{
+        position: "absolute",
+        top:100,
+        left: 100,
+        zIndex:100
+    },
+    btnContainer:{
+        position:"absolute",
+        // backgroundColor:"red",
+        // alignItems:"flex-start",
+        top:"4%",
+        left: "5%",
+        backgroundColor: "transparent"
+    },
+    btnText: {
+        color:"#FFF",
+        fontSize: 18,
+    }
 });

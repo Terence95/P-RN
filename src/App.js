@@ -40,7 +40,9 @@ export default class App extends React.Component {
             <Router>
                 <Scene key="root" style={{paddingTop: Platform.OS === 'ios' ? 64 : 54}}>
                     <Scene key="entry" component={Entry} title="Entry"/>
-                    <Scene key="maincontrolpanel" component={MainControlPanel} title="MainControlPanel"/>
+                    <Scene key="maincontrolpanel" component={MainControlPanel}
+                           navigationBarStyle={{backgroundColor:"transparent",borderBottomColor:"transparent",borderBottomWidth:0}}
+                        hideNavBar="true"/>
                     <Scene key="home" component={Home} title="Home"/>
                     <Scene key="chat" component={Chat} title="Chat"/>
                     <Scene key="day1" component={Day1} title="Day1-StopWatch"/>

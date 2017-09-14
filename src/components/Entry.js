@@ -11,8 +11,9 @@ import {
 
 import {
     Actions,
-    
 } from 'react-native-router-flux';
+
+import Button from "react-native-button";
 
 import Util from './utils';
 
@@ -27,22 +28,19 @@ export default class Home extends React.Component {
 
     render() {
         return(
-            <View style={styles.container}>
+            <View {...this.props} style={styles.container}>
                 <TouchableOpacity
                     onPress={() => {
                     // navigate to second screen and to pass it the name
                     // alert(this.state.name);
                     console.log(this.state.names);
-                    Actions.maincontrolpanel({
-                        names: this.state.names,
-                    });
+                    Actions.maincontrolpanel();
                     // alert(this.state.names);
                   }}
                     style={styles.touchContainer}
-                    navigationBarStyle={{backgroundColor:"transparent"}}
                 >
                     <Text style={styles.buttonText}>
-                        Special.MainControlPanel
+                        Special.MainControlPanel1
                     </Text>
                 </TouchableOpacity>
                 
@@ -188,11 +186,10 @@ var styles = StyleSheet.create({
         textAlign:"left",
     },
     container: {
-        // flex:1,
-        // backgroundColor:"red",
-        alignItems:'center',
-        justifyContent:"center"
-        // textAlign: 'center'
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
     },
     touchContainer: {
         // width: Util.size.width-100,
