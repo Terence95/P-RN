@@ -8,6 +8,7 @@ import {
 import Home from './components/Home';
 import Chat from './components/Chat';
 import Entry from './components/Entry';
+import MainControlPanel from './components/MainControlPanel';
 
 import Day1 from './components/Day1';
 import Day2 from './components/Day2';
@@ -39,6 +40,7 @@ export default class App extends React.Component {
             <Router>
                 <Scene key="root" style={{paddingTop: Platform.OS === 'ios' ? 64 : 54}}>
                     <Scene key="entry" component={Entry} title="Entry"/>
+                    <Scene key="maincontrolpanel" component={MainControlPanel} title="MainControlPanel"/>
                     <Scene key="home" component={Home} title="Home"/>
                     <Scene key="chat" component={Chat} title="Chat"/>
                     <Scene key="day1" component={Day1} title="Day1-StopWatch"/>

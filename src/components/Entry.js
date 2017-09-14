@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 
 import {
-    Actions
+    Actions,
+    
 } from 'react-native-router-flux';
 
 import Util from './utils';
@@ -27,6 +28,24 @@ export default class Home extends React.Component {
     render() {
         return(
             <View style={styles.container}>
+                <TouchableOpacity
+                    onPress={() => {
+                    // navigate to second screen and to pass it the name
+                    // alert(this.state.name);
+                    console.log(this.state.names);
+                    Actions.maincontrolpanel({
+                        names: this.state.names,
+                    });
+                    // alert(this.state.names);
+                  }}
+                    style={styles.touchContainer}
+                    navigationBarStyle={{backgroundColor:"transparent"}}
+                >
+                    <Text style={styles.buttonText}>
+                        Special.MainControlPanel
+                    </Text>
+                </TouchableOpacity>
+                
                 <TouchableOpacity
                     onPress={() => {
                     // navigate to second screen and to pass it the name
