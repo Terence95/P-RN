@@ -116,6 +116,20 @@ export default class Home extends React.Component {
                         4.Day4
                     </Text>
                 </TouchableOpacity>
+
+
+                <TouchableOpacity
+                    onPress={() => {
+                    Actions.day5({
+                        names: this.state.names,
+                    });
+                }}
+                    style={styles.touchContainer}
+                >
+                    <Text style={styles.buttonText}>
+                        5.Day5
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }

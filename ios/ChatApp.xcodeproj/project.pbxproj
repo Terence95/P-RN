@@ -23,6 +23,24 @@
 		00CDA0341F6A233500D6145F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA02A1F6A233500D6145F /* Octicons.ttf */; };
 		00CDA0351F6A233500D6145F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA02B1F6A233500D6145F /* SimpleLineIcons.ttf */; };
 		00CDA0361F6A233500D6145F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA02C1F6A233500D6145F /* Zocial.ttf */; };
+		00CDA0561F6A3EEB00D6145F /* agrass.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0451F6A3EEB00D6145F /* agrass.png */; };
+		00CDA0571F6A3EEB00D6145F /* day1.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0461F6A3EEB00D6145F /* day1.png */; };
+		00CDA0581F6A3EEB00D6145F /* day2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0471F6A3EEB00D6145F /* day2.png */; };
+		00CDA0591F6A3EEB00D6145F /* day3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0481F6A3EEB00D6145F /* day3.png */; };
+		00CDA05A1F6A3EEB00D6145F /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0491F6A3EEB00D6145F /* moments.mp4 */; };
+		00CDA05B1F6A3EEB00D6145F /* poincare.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA04A1F6A3EEB00D6145F /* poincare.png */; };
+		00CDA05C1F6A3EEB00D6145F /* sphere.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA04B1F6A3EEB00D6145F /* sphere.jpg */; };
+		00CDA05D1F6A3EEB00D6145F /* tumblr-audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA04C1F6A3EEB00D6145F /* tumblr-audio.png */; };
+		00CDA05E1F6A3EEB00D6145F /* tumblr-chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA04D1F6A3EEB00D6145F /* tumblr-chat.png */; };
+		00CDA05F1F6A3EEB00D6145F /* tumblr-link.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA04E1F6A3EEB00D6145F /* tumblr-link.png */; };
+		00CDA0601F6A3EEB00D6145F /* tumblr-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA04F1F6A3EEB00D6145F /* tumblr-photo.png */; };
+		00CDA0611F6A3EEB00D6145F /* tumblr-quote.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0501F6A3EEB00D6145F /* tumblr-quote.png */; };
+		00CDA0621F6A3EEB00D6145F /* tumblr-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0511F6A3EEB00D6145F /* tumblr-text.png */; };
+		00CDA0631F6A3EEB00D6145F /* tumblr.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0521F6A3EEB00D6145F /* tumblr.png */; };
+		00CDA0641F6A3EEB00D6145F /* tumblrblur.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0531F6A3EEB00D6145F /* tumblrblur.png */; };
+		00CDA0651F6A3EEB00D6145F /* w2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0541F6A3EEB00D6145F /* w2.png */; };
+		00CDA0661F6A3EEB00D6145F /* w3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0551F6A3EEB00D6145F /* w3.png */; };
+		00CDA0851F6A40E200D6145F /* aaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0841F6A40E200D6145F /* aaa.png */; };
 		00E356F31AD99517003FC87E /* ChatAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ChatAppTests.m */; };
 		1194582CB8B94BAB8C20BC36 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E83F3AA37CF41C6A77FDF37 /* MaterialIcons.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -284,6 +302,24 @@
 		00CDA02A1F6A233500D6145F /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		00CDA02B1F6A233500D6145F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		00CDA02C1F6A233500D6145F /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		00CDA0451F6A3EEB00D6145F /* agrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agrass.png; sourceTree = "<group>"; };
+		00CDA0461F6A3EEB00D6145F /* day1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day1.png; sourceTree = "<group>"; };
+		00CDA0471F6A3EEB00D6145F /* day2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day2.png; sourceTree = "<group>"; };
+		00CDA0481F6A3EEB00D6145F /* day3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day3.png; sourceTree = "<group>"; };
+		00CDA0491F6A3EEB00D6145F /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moments.mp4; sourceTree = "<group>"; };
+		00CDA04A1F6A3EEB00D6145F /* poincare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poincare.png; sourceTree = "<group>"; };
+		00CDA04B1F6A3EEB00D6145F /* sphere.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphere.jpg; sourceTree = "<group>"; };
+		00CDA04C1F6A3EEB00D6145F /* tumblr-audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumblr-audio.png"; sourceTree = "<group>"; };
+		00CDA04D1F6A3EEB00D6145F /* tumblr-chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumblr-chat.png"; sourceTree = "<group>"; };
+		00CDA04E1F6A3EEB00D6145F /* tumblr-link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumblr-link.png"; sourceTree = "<group>"; };
+		00CDA04F1F6A3EEB00D6145F /* tumblr-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumblr-photo.png"; sourceTree = "<group>"; };
+		00CDA0501F6A3EEB00D6145F /* tumblr-quote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumblr-quote.png"; sourceTree = "<group>"; };
+		00CDA0511F6A3EEB00D6145F /* tumblr-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumblr-text.png"; sourceTree = "<group>"; };
+		00CDA0521F6A3EEB00D6145F /* tumblr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tumblr.png; sourceTree = "<group>"; };
+		00CDA0531F6A3EEB00D6145F /* tumblrblur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tumblrblur.png; sourceTree = "<group>"; };
+		00CDA0541F6A3EEB00D6145F /* w2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w2.png; sourceTree = "<group>"; };
+		00CDA0551F6A3EEB00D6145F /* w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w3.png; sourceTree = "<group>"; };
+		00CDA0841F6A40E200D6145F /* aaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaa.png; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* ChatAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ChatAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatAppTests.m; sourceTree = "<group>"; };
@@ -446,6 +482,32 @@
 			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
+		00CDA0441F6A3EEB00D6145F /* img */ = {
+			isa = PBXGroup;
+			children = (
+				00CDA0841F6A40E200D6145F /* aaa.png */,
+				00CDA0451F6A3EEB00D6145F /* agrass.png */,
+				00CDA0461F6A3EEB00D6145F /* day1.png */,
+				00CDA0471F6A3EEB00D6145F /* day2.png */,
+				00CDA0481F6A3EEB00D6145F /* day3.png */,
+				00CDA0491F6A3EEB00D6145F /* moments.mp4 */,
+				00CDA04A1F6A3EEB00D6145F /* poincare.png */,
+				00CDA04B1F6A3EEB00D6145F /* sphere.jpg */,
+				00CDA04C1F6A3EEB00D6145F /* tumblr-audio.png */,
+				00CDA04D1F6A3EEB00D6145F /* tumblr-chat.png */,
+				00CDA04E1F6A3EEB00D6145F /* tumblr-link.png */,
+				00CDA04F1F6A3EEB00D6145F /* tumblr-photo.png */,
+				00CDA0501F6A3EEB00D6145F /* tumblr-quote.png */,
+				00CDA0511F6A3EEB00D6145F /* tumblr-text.png */,
+				00CDA0521F6A3EEB00D6145F /* tumblr.png */,
+				00CDA0531F6A3EEB00D6145F /* tumblrblur.png */,
+				00CDA0541F6A3EEB00D6145F /* w2.png */,
+				00CDA0551F6A3EEB00D6145F /* w3.png */,
+			);
+			name = img;
+			path = ../src/components/img;
+			sourceTree = "<group>";
+		};
 		00E356EF1AD99517003FC87E /* ChatAppTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +550,7 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				00CDA0441F6A3EEB00D6145F /* img */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -977,26 +1040,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CDA0661F6A3EEB00D6145F /* w3.png in Resources */,
+				00CDA05A1F6A3EEB00D6145F /* moments.mp4 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				00CDA05D1F6A3EEB00D6145F /* tumblr-audio.png in Resources */,
 				00CDA0301F6A233500D6145F /* Foundation.ttf in Resources */,
+				00CDA0601F6A3EEB00D6145F /* tumblr-photo.png in Resources */,
+				00CDA0571F6A3EEB00D6145F /* day1.png in Resources */,
+				00CDA0611F6A3EEB00D6145F /* tumblr-quote.png in Resources */,
+				00CDA0561F6A3EEB00D6145F /* agrass.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F3CC92682EF64F0C9D427D47 /* Entypo.ttf in Resources */,
 				00CDA0331F6A233500D6145F /* MaterialIcons.ttf in Resources */,
 				00CDA0351F6A233500D6145F /* SimpleLineIcons.ttf in Resources */,
 				00CDA0361F6A233500D6145F /* Zocial.ttf in Resources */,
 				00CDA0311F6A233500D6145F /* Ionicons.ttf in Resources */,
+				00CDA0591F6A3EEB00D6145F /* day3.png in Resources */,
+				00CDA0621F6A3EEB00D6145F /* tumblr-text.png in Resources */,
 				00CDA02E1F6A233500D6145F /* EvilIcons.ttf in Resources */,
 				F98617B5293D498DBD7C1143 /* EvilIcons.ttf in Resources */,
+				00CDA05E1F6A3EEB00D6145F /* tumblr-chat.png in Resources */,
 				A864CD972B7D4572A0E038F8 /* FontAwesome.ttf in Resources */,
 				C9BB62890CE649DDBC7B936F /* Foundation.ttf in Resources */,
 				00CDA0341F6A233500D6145F /* Octicons.ttf in Resources */,
+				00CDA05F1F6A3EEB00D6145F /* tumblr-link.png in Resources */,
+				00CDA0631F6A3EEB00D6145F /* tumblr.png in Resources */,
 				FEF8336D23C44ADA93C6A39A /* Ionicons.ttf in Resources */,
+				00CDA0641F6A3EEB00D6145F /* tumblrblur.png in Resources */,
+				00CDA0651F6A3EEB00D6145F /* w2.png in Resources */,
+				00CDA0581F6A3EEB00D6145F /* day2.png in Resources */,
 				00CDA02D1F6A233500D6145F /* Entypo.ttf in Resources */,
+				00CDA05C1F6A3EEB00D6145F /* sphere.jpg in Resources */,
+				00CDA05B1F6A3EEB00D6145F /* poincare.png in Resources */,
 				A364CAFFBEE1488AA9F1D287 /* MaterialCommunityIcons.ttf in Resources */,
 				1194582CB8B94BAB8C20BC36 /* MaterialIcons.ttf in Resources */,
 				00CDA02F1F6A233500D6145F /* FontAwesome.ttf in Resources */,
 				40A748DF56E54E1E95C4131C /* Octicons.ttf in Resources */,
 				83B3796298DC47AB86D47C5C /* SimpleLineIcons.ttf in Resources */,
+				00CDA0851F6A40E200D6145F /* aaa.png in Resources */,
 				00CDA0321F6A233500D6145F /* MaterialCommunityIcons.ttf in Resources */,
 				35F32FB968F643EDAFC63B13 /* Zocial.ttf in Resources */,
 			);

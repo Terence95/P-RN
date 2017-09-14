@@ -2,7 +2,8 @@ import React from 'react';
 import {
     View,
     Text,
-    Platform
+    Platform,
+    StatusBar,
 } from 'react-native';
 import Home from './components/Home';
 import Chat from './components/Chat';
@@ -12,6 +13,7 @@ import Day1 from './components/Day1';
 import Day2 from './components/Day2';
 import Day3 from './components/Day3';
 import Day4 from './components/Day4';
+import Day5 from './components/Day5';
 import RnArt from './components/0-1RN-ART';
 
 
@@ -27,6 +29,9 @@ const getSceneStyle = ()=> ({
 })
 
 export default class App extends React.Component {
+    componentDidMount() {
+        StatusBar.setBarStyle(0);
+    }
 
     render () {
         return(
@@ -39,6 +44,7 @@ export default class App extends React.Component {
                     <Scene key="day2" component={Day2} title="Day2-Weather"/>
                     <Scene key="day3" component={Day3} title="Day3"/>
                     <Scene key="day4" component={Day4} title="Day4"/>
+                    <Scene key="day5" component={Day5} title="Day5"/>
                     <Scene key="rnart" component={RnArt} title="RnArt"/>
                 </Scene>
             </Router>
