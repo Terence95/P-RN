@@ -12,7 +12,12 @@ export default class Register extends React.Component {
                 <View style={styles.btnContainer}>
                     <Button style={styles.btnText} onPress={Actions.pop}>
                         <Image style={{marginRight:5}} source={require("./images/ios/main/icon_back.png")}/>
-                        Back
+                    </Button>
+                </View>
+
+                <View style={styles.moreBtnContainer}>
+                    <Button style={styles.btnText} onPress={Actions.pop}>
+                        <Image style={{marginRight:5}} source={require("./images/ios/main/Home/icon_more.png")}/>
                     </Button>
                 </View>
                 <Image
@@ -61,5 +66,11 @@ const styles = StyleSheet.create({
     btnText: {
         color:"#FFF",
         fontSize: 18,
-    }
+    },
+    moreBtnContainer:{
+        position:"absolute",
+        top:"5%",
+        right: "5%",
+        backgroundColor: "transparent"
+    },
 });

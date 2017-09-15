@@ -49,7 +49,7 @@ export default class App extends React.Component {
                     <Scene key="day2" component={Day2} title="Day2-Weather"/>
                     <Scene key="day3" component={Day3} title="Day3"/>
                     <Scene key="day4" component={Day4} title="Day4"/>
-                    <Scene key="day5" component={Day5} title="Day5"/>
+                    <Scene key="day5" component={Day5} title="Day5"  hideNavBar="true"/>
                     <Scene key="day6" component={Day6} title="Day6"/>
                     <Scene key="rnart" component={RnArt} title="RnArt"/>
                 </Scene>

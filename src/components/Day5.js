@@ -9,6 +9,12 @@ import { Image,StyleSheet,Text,TouchableHighlight,PanResponder,LayoutAnimation,S
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import {
+    Actions,
+} from 'react-native-router-flux';
+
+import Button from "react-native-button";
+
 class TwitterUser extends Component{
     constructor() {
         super();
@@ -107,8 +113,11 @@ render () {
     return(
         <View ref={(user) => {this.user = user;}} style={styles.userContainer} {...panProps}>
             <View style={styles.userPanel}>
-                <Image style={[styles.banner,{top: this.state.bannerTop},{zIndex: 100}]} source={{uri:'poincare'}}></Image>
-                <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}, {zIndex: 100}]}><Image style={styles.icon} source={require('./img/w33.png')}></Image></View>
+                <View style={{zIndex: 100}}>
+                    <Button style={{color:"#FFF"}} onPress={Actions.pop}>Back</Button>
+                    <Image style={[styles.banner,{top: this.state.bannerTop}]} source={{uri:'w3'}}></Image>
+                </View>
+                <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}, {zIndex: 100}]}><Image style={styles.icon} source={require('./img/w44.png')}></Image></View>
                 <View style={styles.userControl}>
                     <TouchableHighlight style={styles.controlIcon}>
                         <Icon name="ios-settings" color="#8999a5" size={20}></Icon>
@@ -221,7 +230,7 @@ const styles = StyleSheet.create({
     },
     twitterContainer:{
         width: Util.size.width,
-        height: Util.size.height-63,
+        height: Util.size.height,
         backgroundColor:"#f5f8fa",
     },
     userContainer:{
@@ -344,4 +353,11 @@ const styles = StyleSheet.create({
         paddingLeft:15,
         height:40,
     },
+    btnText:{
+        color:"#fff",
+        position:"absolute",
+        top:100,
+        fontSize:30,
+        left:30,
+    }
 });
