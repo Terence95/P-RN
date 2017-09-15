@@ -45,7 +45,7 @@ export default class Register extends React.Component {
                                 activeDot={<View style={{backgroundColor: 'rgba(255,255,255,1)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}>
                             <View style={styles.slide}>
                                 <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
-                                    <TouchableOpacity style={[styles.controlBtn,{backgroundColor:"red"}]} onPress={()=>{
+                                    <TouchableOpacity style={[styles.controlBtn,{backgroundColor:"transparent"}]} onPress={()=>{
                                         alert("click btn");
                                     }}>
                                         <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
@@ -68,7 +68,7 @@ export default class Register extends React.Component {
                                     </TouchableOpacity>
                                 </View>
                                 <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
-                                    <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
+                                    <TouchableOpacity style={[styles.controlBtnDown]} onPress={()=>{
                                         alert("click btn");
                                     }}>
                                         <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_eco@2x.png")}/>
@@ -209,7 +209,8 @@ const styles = StyleSheet.create({
         flex:1,
         // width:10,
         marginTop:0,
-        marginBottom:0,
+        marginBottom:20,
+        // backgroundColor:"yellow",
         // marginLeft:20,
         // marginRight:20,
         // height:,
