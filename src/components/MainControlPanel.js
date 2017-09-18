@@ -1,21 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, } from 'react-native';
 import Button from 'react-native-button';
-import { Actions } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux'; // flux reflux redux // -- react navigation --navigator
 import Util from './utils';
 import Swiper from 'react-native-swiper';
 
 
-export default class Register extends React.Component {
+class CusNavigator extends Component {
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {};
+      }
 
-    _press() {
-        // alert('press btn');
-    }
-
-    render() {
-        return(
-            <View style={styles.container}>
-
+    render () {
+        return (
+            <View style={styles.navigator}>
                 <View style={styles.btnContainer}>
                     <Button style={styles.btnText} onPress={Actions.pop}>
                         <Image style={{marginRight:5}} source={require("./images/ios/main/icon_back.png")}/>
@@ -26,82 +27,169 @@ export default class Register extends React.Component {
                 </View>
                 <View style={styles.moreBtnContainer}>
                     <Button style={styles.btnText} onPress={Actions.pop}>
-                        <Image style={{marginRight:5}} source={require("./images/ios/main/Home/icon_more.png")}/>
+                        <Image style={{marginRight:5, marginTop:15}} source={require("./images/ios/main/Home/icon_more.png")}/>
                     </Button>
                 </View>
-                <Image
-                    style={styles.backgroundImage}
-                    source={require('./images/ios/main/Home/bg_zhileng@2x.png')}/>
+            </View>
+        )
+    }
+}
 
-                <View style={styles.displayPanel}>
 
-                </View>
 
-                <View style={styles.controlPanel}>
-                    <View style={styles.sliders}>
-                        <Swiper height={200} showsButtons={false} autoplay={false} loop={false}
-                                paginationStyle={{bottom: 15}}
-                                dot={<View style={{backgroundColor: 'rgba(255,255,255,0.2)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}
-                                activeDot={<View style={{backgroundColor: 'rgba(255,255,255,1)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}>
-                            <View style={styles.slide}>
-                                <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
-                                    <TouchableOpacity style={[styles.controlBtn,{backgroundColor:"transparent"}]} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity style={styles.controlBtn} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_mode.png")}/>
-                                    </TouchableOpacity>
 
-                                    <TouchableOpacity style={styles.controlBtn} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_fan@2x.png")}/>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity style={styles.controlBtn} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_power@2x.png")}/>
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
-                                    <TouchableOpacity style={[styles.controlBtnDown]} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_eco@2x.png")}/>
-                                    </TouchableOpacity>
+class MainPanel extends Component {
 
-                                    <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_hum@2x.png")}/>
-                                    </TouchableOpacity>
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            acClosed:this.props.acClosed,
+        };
+      }
 
-                                    <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_leftright@2x.png")}/>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
-                                        alert("click btn");
-                                    }}>
-                                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_updown@2x.png")}/>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={styles.slide}>
-                                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+    render () {
+        return (
+            <View>
+                {
+                    this.state.acClosed? <View style={styles.container}>
+                                             <CusNavigator/>
+                                             <Image
+                                                style={styles.backgroundImage}
+                                                source={require('./images/ios/main/Home/bg_zhileng@2x.png')}/>
+                                            <TouchableOpacity style={styles.turnOnBtn} onPress={()=>{
+                                                    this.setState({
+                                                        acClosed: false,
+                                                    });
+                                                    alert(this.props.acClosed);
+                                            }}>
+                                                <View style={styles.displayPanel}>
+                                                    <Image source={require('./images/ios/main/Logo/logo_.png')}/>
+                                                    <Text style={styles.turnOnText}>Touch to turn on</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                         </View>:
+                                         <View style={styles.container}>
+                                             <CusNavigator/>
+
+                                             <Image
+                                                 resizeMode="contain"
+                                                 style={styles.backgroundImage}
+                                                 source={require('./images/ios/main/Home/bg_zhileng@2x.png')}/>
+
+                                             <View style={styles.displayPanel}>
+
+                                             </View>
+
+                                             <SwiperComponent/>
+                                         </View>
+                }
+            </View>
+        )
+    }
+}
+
+MainPanel.propTypes = {
+    acClosed:React.PropTypes.bool.isRequired,
+};
+
+class SwiperComponent extends Component {
+
+    render() {
+        return (
+            <View style={styles.controlPanel}>
+                <View style={styles.sliders}>
+                    <Swiper height={200} showsButtons={false} autoplay={false} loop={false}
+                            paginationStyle={{bottom: 15}}
+                            dot={<View style={{backgroundColor: 'rgba(255,255,255,0.2)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}
+                            activeDot={<View style={{backgroundColor: 'rgba(255,255,255,1)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}>
+                        <View style={styles.slide}>
+                            <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
+                                <TouchableOpacity style={[styles.controlBtn,{backgroundColor:"transparent"}]} onPress={()=>{
                                         alert("click btn");
                                     }}>
                                     <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
                                 </TouchableOpacity>
+                                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_mode.png")}/>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_fan@2x.png")}/>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_power@2x.png")}/>
+                                </TouchableOpacity>
                             </View>
-                        </Swiper>
-                    </View>
+                            <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
+                                <TouchableOpacity style={[styles.controlBtnDown]} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_eco@2x.png")}/>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_hum@2x.png")}/>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_leftright@2x.png")}/>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.controlBtnDown} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_updown@2x.png")}/>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={styles.slide}>
+                            <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                                <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
+                            </TouchableOpacity>
+                        </View>
+                    </Swiper>
                 </View>
+            </View>
+        );
+    }
+}
+
+//java
+//MainControlPanel mc = new MainControlPanel(props);
+
+
+class MainControlPanel extends React.Component {
+
+    _press() {
+        // alert(this.state.acClosed);
+    }
+
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            acClosed:true,
+        };
+      }
+
+    render() {
+        return(
+            <View style={styles.container}>
+                <MainPanel acClosed={this.state.acClosed}></MainPanel>
             </View>
         )
     }
@@ -149,7 +237,7 @@ const styles = StyleSheet.create({
     acTitleContainer:{
         position:"absolute",
         backgroundColor:"transparent",
-        top: "4%",
+        top: "10%",
     },
     acTitleText:{
         color:"white",
@@ -158,16 +246,17 @@ const styles = StyleSheet.create({
     },
     moreBtnContainer:{
         position:"absolute",
-        top:"5%",
+        // top:"%",
         right: "5%",
+        // marginTop:-20,
         backgroundColor: "transparent"
     },
     displayPanel:{
         position:"absolute",
         // backgroundColor:"red",
-        width:120,
-        height:120,
-        borderRadius:60,
+        width:152,
+        height:152,
+        borderRadius:76,
         top: "30%",
         borderColor:"white",
         borderWidth:1,
@@ -243,4 +332,39 @@ const styles = StyleSheet.create({
         fontWeight:"700"
     },
 
+    navigator:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        top:"4%",
+        backgroundColor:"yellow",
+        width:Util.size.width
+    },
+    turnOnText:{
+        // position:"absolute",
+        top:"-35%",
+        textAlign:"center",
+        justifyContent:"center",
+        backgroundColor:"transparent",
+        color:"#fff",
+    },
+    turnOnBtn:{
+        position:"absolute",
+        justifyContent:"center",
+        alignItems:"center",
+        top:"30%",
+        // backgroundColor:"red",
+        // paddingTop:10,
+        // paddingBottom:10,
+        // paddingLeft:20,
+        // paddingRight:20,
+        // flex:1,
+        // width:10,
+        // marginTop:13,
+        // marginBottom:10,
+        // marginLeft:20,
+        // marginRight:20,
+        // height:,
+    }
 });
+
+export {MainControlPanel, MainPanel};

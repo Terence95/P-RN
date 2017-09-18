@@ -8,7 +8,7 @@ import {
 import Home from './components/Home';
 import Chat from './components/Chat';
 import Entry from './components/Entry';
-import MainControlPanel from './components/MainControlPanel';
+import {MainControlPanel} from './components/MainControlPanel';
 
 import Day1 from './components/Day1';
 import Day2 from './components/Day2';
