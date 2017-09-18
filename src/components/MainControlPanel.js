@@ -106,7 +106,7 @@ class SwiperComponent extends Component {
                             activeDot={<View style={{backgroundColor: 'rgba(255,255,255,1)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}>
                         <View style={styles.slide}>
                             <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
-                                <TouchableOpacity style={[styles.controlBtn,{backgroundColor:"transparent"}]} onPress={()=>{
+                                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
                                         alert("click btn");
                                     }}>
                                     <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
