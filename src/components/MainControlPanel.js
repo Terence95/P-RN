@@ -53,7 +53,7 @@ class MainPanel extends Component {
         return (
             <View>
                 {
-                    this.state.acClosed? <View style={styles.container}>
+                    this.state.acClosed ? <View style={styles.container}>
                                              <CusNavigator/>
                                              <Image
                                                 style={styles.backgroundImage}
@@ -93,6 +93,74 @@ class MainPanel extends Component {
 MainPanel.propTypes = {
     acClosed:React.PropTypes.bool.isRequired,
 };
+
+class SwiperTouchSlide extends  Component {
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            btnSource: this.props.btnSource,
+        };
+      }
+    render () {
+        return (
+            <View style={styles.slide}>
+                <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
+                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
+                </TouchableOpacity>
+                </View>
+                <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
+                    <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                        <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
+}
+
+SwiperTouchSlide.propTypes = {
+    btnSource:React.PropTypes.string,
+}
+
+class SwiperTouchBtn extends Component {
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            btnSource:"./images/ios/main/Home/home_button_start@2x.png"
+        };
+      }
+
+    componentDidMount() {
+        alert(this.props.btnSource);
+    }
+    render () {
+        return (
+            <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                                        alert("click btn");
+                                    }}>
+                <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
+            </TouchableOpacity>
+        )
+    }
+}
+
+Swiper.propTypes = {
+    btnSource: React.PropTypes.string.isRequired,
+}
 
 class SwiperComponent extends Component {
 
@@ -151,15 +219,20 @@ class SwiperComponent extends Component {
                                     }}>
                                     <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_updown@2x.png")}/>
                                 </TouchableOpacity>
+
                             </View>
                         </View>
                         <View style={styles.slide}>
-                            <TouchableOpacity style={styles.controlBtn} onPress={()=>{
+                            <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
+                                <TouchableOpacity style={styles.controlBtn} onPress={()=>{
                                         alert("click btn");
                                     }}>
-                                <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
-                            </TouchableOpacity>
+                                    <Image resizeMode="contain" source={require("./images/ios/main/Home/home_button_start@2x.png")}/>
+                                </TouchableOpacity>
+                                <SwiperTouchBtn btnSource={"./images"}></SwiperTouchBtn>
+                            </View>
                         </View>
+
                     </Swiper>
                 </View>
             </View>
@@ -167,6 +240,9 @@ class SwiperComponent extends Component {
     }
 }
 
+SwiperComponent.propTypes = {
+
+}
 //java
 //MainControlPanel mc = new MainControlPanel(props);
 
