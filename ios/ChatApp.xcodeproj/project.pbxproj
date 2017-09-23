@@ -40,7 +40,6 @@
 		00CDA0D91F6A4DB300D6145F /* tumblrblur.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0C71F6A4DB300D6145F /* tumblrblur.png */; };
 		00CDA0DA1F6A4DB300D6145F /* w2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0C81F6A4DB300D6145F /* w2.png */; };
 		00CDA0F91F6A4E3800D6145F /* w3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0F81F6A4E3800D6145F /* w3.png */; };
-		00CDA0FB1F6A4E9300D6145F /* w33.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CDA0FA1F6A4E9300D6145F /* w33.png */; };
 		00E356F31AD99517003FC87E /* ChatAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ChatAppTests.m */; };
 		1194582CB8B94BAB8C20BC36 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E83F3AA37CF41C6A77FDF37 /* MaterialIcons.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -319,7 +318,6 @@
 		00CDA0C71F6A4DB300D6145F /* tumblrblur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tumblrblur.png; sourceTree = "<group>"; };
 		00CDA0C81F6A4DB300D6145F /* w2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w2.png; sourceTree = "<group>"; };
 		00CDA0F81F6A4E3800D6145F /* w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w3.png; sourceTree = "<group>"; };
-		00CDA0FA1F6A4E9300D6145F /* w33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w33.png; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* ChatAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ChatAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatAppTests.m; sourceTree = "<group>"; };
@@ -485,7 +483,6 @@
 		00CDA0B81F6A4DB300D6145F /* img */ = {
 			isa = PBXGroup;
 			children = (
-				00CDA0FA1F6A4E9300D6145F /* w33.png */,
 				00CDA0F81F6A4E3800D6145F /* w3.png */,
 				00CDA0B91F6A4DB300D6145F /* agrass.png */,
 				00CDA0BA1F6A4DB300D6145F /* day1.png */,
@@ -748,7 +745,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 243F47H446;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 243F47H446;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1047,7 +1048,6 @@
 				00CDA0301F6A233500D6145F /* Foundation.ttf in Resources */,
 				00CDA0D51F6A4DB300D6145F /* tumblr-photo.png in Resources */,
 				00CDA0CC1F6A4DB300D6145F /* day1.png in Resources */,
-				00CDA0FB1F6A4E9300D6145F /* w33.png in Resources */,
 				00CDA0D61F6A4DB300D6145F /* tumblr-quote.png in Resources */,
 				00CDA0CB1F6A4DB300D6145F /* agrass.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -1198,6 +1198,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 243F47H446;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1223,6 +1224,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 243F47H446;
 				INFOPLIST_FILE = ChatAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1245,13 +1247,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 243F47H446;
 				INFOPLIST_FILE = ChatApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.terence.ChatApp;
 				PRODUCT_NAME = ChatApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1262,13 +1267,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 243F47H446;
 				INFOPLIST_FILE = ChatApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.terence.ChatApp;
 				PRODUCT_NAME = ChatApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
