@@ -117,12 +117,12 @@ class SwiperTouchBtn extends Component {
             <View style={{width:Util.size.width, height: 75,backgroundColor:"transparent",flexDirection:"row"}}>
                 {
                     infoList.map((item, index)=> {
-                        return (<TouchableOpacity key={index}
+                        return (<TouchableOpacity disabled={item.btnDisabled} key={index}
                                                   style={ this.state.btnTop ? styles.controlBtn : styles.controlBtnDown}
                                                   onPress={()=>{
                                         alert("click btn");
                                     }}>
-                            <Image resizeMode="contain" source={item.btnImg}/>
+                            <Image resizeMode="contain" source={item.btnImg} style={{opacity:item.btnDisabled? 0 : 1}}/>
                         </TouchableOpacity>)
                     })
                 }
@@ -142,59 +142,59 @@ class SwiperComponent extends Component {
     render() {
         let btnPage1Group1 = [{
             btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }
         ];
 
         let btnPage1Group2 = [{
             btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }];
 
         let btnPage2Group1 = [{
             btnImg: require("./images/ios/main/Home/home_button_below@2x.png"),
-            btnAvaliable:true,
+            btnDisabled:false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }];
 
         let btnPageGroup2 = [{
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnAvaliable:false,
+            btnDisabled:true,
         }];
 
         return (
