@@ -184,9 +184,59 @@ class SwiperComponent extends Component {
             },
             {
                 page: "aaa",
+                btnGroup:[{
+                    btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
+                    btnDisabled: false,
+                }]
             },
             {
                 page: "aaa",
+                btnGroup:[{
+                    btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
+                    btnDisabled: false,
+                }]
             },
         ];
 
@@ -318,24 +368,16 @@ class SwiperComponent extends Component {
                         paginationStyle={{bottom: 15}}
                         dot={<View style={{backgroundColor: 'rgba(255,255,255,0.2)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}
                         activeDot={<View style={{backgroundColor: 'rgba(255,255,255,1)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}>
-                    <View style={styles.slide}>
                         {
                             pageInfo.map((item,index)=>{
                                 return (
                                     // 当前传入一串八个图标能自动排布
-                                    <SwiperTouchBtn key="1" btnSource={item.btnGroup}></SwiperTouchBtn>
+                                    <View style={styles.slide}>
+                                        <SwiperTouchBtn btnSource={item.btnGroup}></SwiperTouchBtn>
+                                    </View>
                                 )
                             })
                         }
-                    </View>
-                    <View style={styles.slide}>
-                        <SwiperTouchBtn key="1" btnSource={btnPage1Group2}></SwiperTouchBtn>
-                    </View>
-
-                    <View style={styles.slide}>
-                        <SwiperTouchBtn key="1" btnSource={btnPage1Group1}></SwiperTouchBtn>
-                    </View>
-
                 </Swiper>
             </View>
         );
@@ -455,7 +497,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         padding:0,
         justifyContent:'center',
-        backgroundColor:"black"
+        // backgroundColor:"black"
 
     },
 
@@ -474,7 +516,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         paddingBottom: 110,
-        backgroundColor:'red',
+        // backgroundColor:'red',
     },
     slideText: {
         color: "#fff",
