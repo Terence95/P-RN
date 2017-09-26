@@ -46,7 +46,17 @@ class MainPanel extends Component {
         // 初始状态
         this.state = {
             acClosed: this.props.acClosed,
+            acInfo: {
+                acDegree: 26,
+                acMode: "COOL"
+            }
         };
+    }
+
+    getBgImg(acMode) {
+        switch (acMode) {
+
+        }
     }
 
     render() {
@@ -78,6 +88,24 @@ class MainPanel extends Component {
                                 source={require('./images/ios/main/Home/bg_zhileng@2x.png')}/>
 
                             <View style={styles.displayPanel}>
+                                <Image style={{justifyContent:"center",alignItems:"center"}}
+                                       source={require('./images/ios/main/Premier/home_round-01@2x.png')}/>
+                                <View style={styles.acInfoContainer}>
+                                    <Text style={styles.acDegreeText}>{this.state.acInfo.acDegree}</Text>
+                                    <View style={styles.acDegreeUnitContainer}>
+                                        <Text style={styles.acDegreeUnit}>℃</Text>
+                                    </View>
+                                    <Text style={styles.acModeText}>{this.state.acInfo.acMode}</Text>
+                                </View>
+                            </View>
+
+                            <View style={styles.moreInfoContainer}>
+                                <View style={styles.fanInfoContainer}>
+                                    <Text style={styles.fanInfoText}>Fan
+                                        <Image  style={{width:30,height:30,backgroundColor:"transparent", marginLeft: 10, marginTop: 10}} resizeMode="contain" source={require('./images/ios/main/Home/fan/fan_4@2x.png')}/>
+                                    </Text>
+                                    <Text style={styles.fanInfoText}>Indoor --</Text>
+                                </View>
 
                             </View>
 
@@ -114,13 +142,14 @@ class SwiperTouchBtn extends Component {
         let infoList = this.state.btnInfo;
 
         return (
-            <View style={{width:Util.size.width, height:70,backgroundColor:"transparent", alignItems:'center',flexDirection:"row", flexWrap:"wrap"}}>
+            <View
+                style={{width:Util.size.width, height:70,backgroundColor:"transparent", alignItems:'center',flexDirection:"row", flexWrap:"wrap"}}>
                 {
                     infoList.map((item, index)=> {
                         return (<TouchableOpacity disabled={item.btnDisabled} key={index}
                                                   style={styles.controlBtn}
                                                   onPress={()=>{
-                                        alert("click btn");
+                                        item.btnFunc();
                                     }}>
                             <Image resizeMode="contain" source={item.btnImg} style={{opacity:item.btnDisabled? 0 : 1}}/>
                         </TouchableOpacity>)
@@ -155,209 +184,167 @@ class SwiperComponent extends Component {
 
         let pageInfo = [
             {
-                page: "1",
-                btnGroup:[{
+                pageIndex: 0,
+                btnGroup: [{
                     btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
                     btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-                    btnDisabled: false,
-                }]
-            },
-            {
-                page: "aaa",
-                btnGroup:[{
-                    btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-                    btnDisabled: false,
-                }]
-            },
-            {
-                page: "aaa",
-                btnGroup:[{
-                    btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-                    btnDisabled: false,
-                }]
-            },
-        ];
+                    btnFunc: ()=> {
+                        alert("start");
+                        // 如何通过在这个组件里改变另一个组件的状态?
 
-        let allCtlBtn = [{
-            btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_fahrenheit@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }];
+                    }
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
+                    btnDisabled: false,
+                }]
+            },
+            {
+                pageIndex: 1,
+                btnGroup: [{
+                    btnImg: require("./images/ios/main/Home/home_button_below@2x.png"),
+                    btnDisabled: false,
+                }, {
+                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
+                    btnDisabled: false,
+                }]
+            }];
+
+        // let allCtlBtn = [{
+        //     btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_mode.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_fahrenheit@2x.png"),
+        //     btnDisabled: false,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }, {
+        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
+        //     btnDisabled: true,
+        // }];
 
 
         let btnPage1Group1 = [{
             btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-            btnDisabled:false,
-        },{
+            btnDisabled: false,
+        }, {
             btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }
         ];
 
         let btnPage1Group2 = [{
             btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }];
 
         let btnPage2Group1 = [{
             btnImg: require("./images/ios/main/Home/home_button_below@2x.png"),
-            btnDisabled:false,
+            btnDisabled: false,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }];
 
         let btnPageGroup2 = [{
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }, {
             btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled:true,
+            btnDisabled: true,
         }];
 
         let key = 0;
@@ -368,16 +355,16 @@ class SwiperComponent extends Component {
                         paginationStyle={{bottom: 15}}
                         dot={<View style={{backgroundColor: 'rgba(255,255,255,0.2)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}
                         activeDot={<View style={{backgroundColor: 'rgba(255,255,255,1)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3}} />}>
-                        {
-                            pageInfo.map((item,index)=>{
-                                return (
-                                    // 当前传入一串八个图标能自动排布
-                                    <View style={styles.slide}>
-                                        <SwiperTouchBtn btnSource={item.btnGroup}></SwiperTouchBtn>
-                                    </View>
-                                )
-                            })
-                        }
+                    {
+                        pageInfo.map((item, index)=> {
+                            return (
+                                // 当前传入一串八个图标能自动排布
+                                <View style={styles.slide}>
+                                    <SwiperTouchBtn key={item.pageIndex} btnSource={item.btnGroup}></SwiperTouchBtn>
+                                </View>
+                            )
+                        })
+                    }
                 </Swiper>
             </View>
         );
@@ -474,16 +461,18 @@ const styles = StyleSheet.create({
         width: 152,
         height: 152,
         borderRadius: 76,
-        top: "30%",
-        borderColor: "white",
+        top: "28%",
+        borderColor: "transparent",
         borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center"
     },
     controlPanel: {
         position: "absolute",
         width: Util.size.width,
         flex: 2,
         // backgroundColor:"red",
-        height: 200,
+        height: 170,
         bottom: "0%",
         // borderWidth:1,
         // borderColor:"white",
@@ -491,12 +480,12 @@ const styles = StyleSheet.create({
     controlBtn: {
         // flex:1,
         alignItems: 'center',
-        width:"25%",
-        flexWrap:"wrap",
-        marginTop: 10,
-        marginBottom: 10,
-        padding:0,
-        justifyContent:'center',
+        width: "25%",
+        flexWrap: "wrap",
+        marginTop: 7,
+        marginBottom: 7,
+        padding: 0,
+        justifyContent: 'center',
         // backgroundColor:"black"
 
     },
@@ -515,7 +504,7 @@ const styles = StyleSheet.create({
         height: Util.size.height - 100,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        paddingBottom: 110,
+        paddingBottom: 92,
         // backgroundColor:'red',
     },
     slideText: {
@@ -549,6 +538,69 @@ const styles = StyleSheet.create({
         alignItems: "center",
         top: "30%",
     },
+    acInfoContainer: {
+        // backgroundColor:"red",
+        backgroundColor: "transparent",
+        width: 152,
+        height: 152,
+        // justifyContent:"center",
+        alignItems: "center",
+        borderRadius: 76,
+        position:"absolute",
+    },
+    acDegreeText: {
+        fontSize: 55,
+        color: "white",
+        // backgroundColor:"black",
+        backgroundColor: "transparent",
+        flex: 2,
+        paddingTop: 35,
+        lineHeight: 80,
+        // textAlign:'center',
+
+    },
+    acModeText: {
+        fontWeight: "bold",
+        color: "white",
+        flex: 1,
+    },
+    acDegreeUnit: {
+        fontSize: 25,
+        fontWeight: "bold",
+        // backgroundColor:"red",
+        position: "relative",
+        color: "white",
+        // lineHeight:20,
+        // flex:1
+    },
+    acDegreeUnitContainer: {
+        position: "absolute",
+        alignItems: 'center',
+        justifyContent: "center",
+        left: "70%",
+        top: "30%",
+    },
+    moreInfoContainer:{
+        position:"absolute",
+        backgroundColor:"transparent",
+        width:100,
+        height:50,
+        bottom:180,
+        left:"5%",
+        // alignItems:"center",
+        marginBottom:20
+
+
+    },
+    fanInfoContainer:{
+        // alignItems:"center",
+    },
+    fanInfoText:{
+        padding: 4,
+        fontWeight:"bold",
+        color:"white",
+        fontSize:15
+    }
 
 });
 
