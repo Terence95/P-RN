@@ -1,0 +1,9 @@
+{
+    "acConfig":
+    {
+        "f1049":{
+            "funBtnImg":"./images/ios/main/Home/home_button_start@2x.png", //开关机
+            "funName":""
+        }
+    }
+}

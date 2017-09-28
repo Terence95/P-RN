@@ -4,10 +4,15 @@ import Button from 'react-native-button';
 import {Actions} from 'react-native-router-flux'; // flux reflux redux // -- react navigation --navigator
 import Util from './utils';
 import Swiper from 'react-native-swiper';
+import acProperty from './data/acPropertyList.json';
+import funConfig from './funConfig';
 
 
 // 自定义顶栏组件
 class CusNavigator extends Component {
+
+
+
     // 构造
     constructor(props) {
         super(props);
@@ -102,7 +107,10 @@ class MainPanel extends Component {
                             <View style={styles.moreInfoContainer}>
                                 <View style={styles.fanInfoContainer}>
                                     <Text style={styles.fanInfoText}>Fan
-                                        <Image  style={{width:30,height:30,backgroundColor:"transparent", marginLeft: 10, marginTop: 10}} resizeMode="contain" source={require('./images/ios/main/Home/fan/fan_4@2x.png')}/>
+                                        <Image
+                                            style={{width:30,height:30,backgroundColor:"transparent", marginLeft: 10, marginTop: 10}}
+                                            resizeMode="contain"
+                                            source={require('./images/ios/main/Home/fan/fan_4@2x.png')}/>
                                     </Text>
                                     <Text style={styles.fanInfoText}>Indoor --</Text>
                                 </View>
@@ -141,6 +149,8 @@ class SwiperTouchBtn extends Component {
     render() {
         let infoList = this.state.btnInfo;
 
+        let btnImg = './images/ios/main/Home/bg_zhileng@2x.png';
+
         return (
             <View
                 style={{width:Util.size.width, height:70,backgroundColor:"transparent", alignItems:'center',flexDirection:"row", flexWrap:"wrap"}}>
@@ -169,185 +179,97 @@ SwiperTouchBtn.propTypes = {
 class SwiperComponent extends Component {
 
 
-    renderPage(length) {
-        return (
-            <View>
+    onMsByCallAndMsg = (msg)=> {
+        this.setState({
+            callMsgAndMsg: msg
+        })
+    };
 
-            </View>)
+    componentDidMount() {
+        console.log("did mount");
+        console.log(funConfig);
+        console.log(funConfig.acConfig.f1049.funBtnImg);
+        console.log(this.getPageInfo(this.getAcFunctions(11495)));
     }
 
-    renderBtn() {
 
+    getAcFunctions(acSubType){
+        let tmpFunc = [];
+        let commonFunc = acProperty["common"].functions;
+        let funcOrder = acProperty["common"].funcOrder;
+        let finalFunc = [];
+        let sortedFunc = [];
+
+        for (let i = 0; i < acProperty["ac"].length;i++){
+            if (acProperty["ac"][i]["subType"].indexOf(acSubType)>-1){
+                tmpFunc = acProperty["ac"][i].functions;
+            }
+        }
+
+        finalFunc = tmpFunc.concat(commonFunc);
+
+        for(let j = 0; j < funcOrder.length; j++){
+            for(let k = 0; k < finalFunc.length; k++) {
+                if (finalFunc[k] == funcOrder[j]) {
+                    sortedFunc.push(finalFunc[k]);
+                }
+            }
+        }
+        return sortedFunc;
+
+        // debug
+        console.log(commonFunc);
+        console.log(funcOrder);
+    }
+
+    getPageInfo(funcList) {
+        let pageNum = Math.ceil(funcList.length/8);
+        let pageDataArr = [];
+        let pageData = {};
+        let funcArr = [];
+        var i = 0;
+        var j = 0;
+
+        while (true) {
+            if(i>=funcList.length){
+                break;
+            }
+            funcArr[j] = funcList.slice(i,i+8);
+            if(funcArr[j] != undefined && funcArr[j].length>0){
+                pageData = {
+                    "pageIndex":j,
+                    "btnGroup": this.getBtnGroup(funcArr[j],funConfig),
+                }
+                pageDataArr.push(pageData);
+            } else {
+                alert("sth wrong in funcArr");
+            }
+            i+=8;
+            ++j;
+        }
+
+        return pageDataArr;
+    }
+
+    getBtnGroup(arr, funConfig) {
+        let btnGroupArr = [];
+        let btnGroup = [];
+        let btnGroupObj = {};
+
+        for(let index in arr){
+            btnGroupObj = {
+                "funcId":arr[index],
+                "btnImg":funConfig.acConfig[arr[index]].funBtnImg,
+            }
+            btnGroupArr.push(btnGroupObj);
+        }
+        return btnGroupArr;
     }
 
     render() {
 
-        let pageInfo = [
-            {
-                pageIndex: 0,
-                btnGroup: [{
-                    btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-                    btnDisabled: false,
-                    btnFunc: ()=> {
-                        alert("start");
-                        // 如何通过在这个组件里改变另一个组件的状态?
 
-                    }
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-                    btnDisabled: false,
-                }]
-            },
-            {
-                pageIndex: 1,
-                btnGroup: [{
-                    btnImg: require("./images/ios/main/Home/home_button_below@2x.png"),
-                    btnDisabled: false,
-                }, {
-                    btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-                    btnDisabled: false,
-                }]
-            }];
-
-        // let allCtlBtn = [{
-        //     btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_fahrenheit@2x.png"),
-        //     btnDisabled: false,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }, {
-        //     btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-        //     btnDisabled: true,
-        // }];
-
-
-        let btnPage1Group1 = [{
-            btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_start@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_mode.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_fan@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_power@2x.png"),
-            btnDisabled: false,
-        }
-        ];
-
-        let btnPage1Group2 = [{
-            btnImg: require("./images/ios/main/Home/home_button_eco@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_leftright@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_updown@2x.png"),
-            btnDisabled: false,
-        }];
-
-        let btnPage2Group1 = [{
-            btnImg: require("./images/ios/main/Home/home_button_below@2x.png"),
-            btnDisabled: false,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }];
-
-        let btnPageGroup2 = [{
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }, {
-            btnImg: require("./images/ios/main/Home/home_button_hum@2x.png"),
-            btnDisabled: true,
-        }];
-
-        let key = 0;
+        let pageInfo = this.getPageInfo(this.getAcFunctions(50531));
 
         return (
             <View style={styles.controlPanel}>
@@ -360,7 +282,7 @@ class SwiperComponent extends Component {
                             return (
                                 // 当前传入一串八个图标能自动排布
                                 <View style={styles.slide}>
-                                    <SwiperTouchBtn key={item.pageIndex} btnSource={item.btnGroup}></SwiperTouchBtn>
+                                    <SwiperTouchBtn key="aa" btnSource={item.btnGroup}></SwiperTouchBtn>
                                 </View>
                             )
                         })
@@ -372,16 +294,8 @@ class SwiperComponent extends Component {
 }
 
 SwiperComponent.propTypes = {}
-//java
-//MainControlPanel mc = new MainControlPanel(props);
-
 
 class MainControlPanel extends React.Component {
-
-    _press() {
-        // alert(this.state.acClosed);
-    }
-
     // 构造
     constructor(props) {
         super(props);
@@ -390,6 +304,8 @@ class MainControlPanel extends React.Component {
             acClosed: true,
         };
     }
+
+
 
     render() {
         return (
@@ -406,16 +322,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: '#F5FCFF',
     },
     backgroundImage: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        // width:null,
-        // height:null,
-        resizeMode: Image.resizeMode.contain,
-        // backgroundColor:'rgba(0,0,0,0)',
         width: Util.size.width,
         height: Util.size.height,
         zIndex: -1000
@@ -428,14 +339,12 @@ const styles = StyleSheet.create({
     },
     btnContainer: {
         position: "absolute",
-        // backgroundColor:"red",
-        // alignItems:"flex-start",
         top: "4%",
         left: "5%",
-        backgroundColor: "transparent"
+        backgroundColor: "transparent",
     },
     btnText: {
-        color: "#FFF",
+        color: "#ffffff",
         fontSize: 18,
     },
     acTitleContainer: {
@@ -450,14 +359,11 @@ const styles = StyleSheet.create({
     },
     moreBtnContainer: {
         position: "absolute",
-        // top:"%",
         right: "5%",
-        // marginTop:-20,
         backgroundColor: "transparent"
     },
     displayPanel: {
         position: "absolute",
-        // backgroundColor:"red",
         width: 152,
         height: 152,
         borderRadius: 76,
@@ -471,14 +377,10 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: Util.size.width,
         flex: 2,
-        // backgroundColor:"red",
         height: 170,
         bottom: "0%",
-        // borderWidth:1,
-        // borderColor:"white",
     },
     controlBtn: {
-        // flex:1,
         alignItems: 'center',
         width: "25%",
         flexWrap: "wrap",
@@ -486,18 +388,12 @@ const styles = StyleSheet.create({
         marginBottom: 7,
         padding: 0,
         justifyContent: 'center',
-        // backgroundColor:"black"
-
     },
-
-
     sliders: {
         position: 'absolute',
         width: Util.size.width,
         bottom: "0%",
         left: 0,
-        // backgroundColor:"red",
-
     },
     slide: {
         flex: 1,
@@ -505,7 +401,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         paddingBottom: 92,
-        // backgroundColor:'red',
     },
     slideText: {
         color: "#fff",
@@ -516,7 +411,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "700"
     },
-
     navigator: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -525,7 +419,6 @@ const styles = StyleSheet.create({
         width: Util.size.width
     },
     turnOnText: {
-        // position:"absolute",
         top: "-35%",
         textAlign: "center",
         justifyContent: "center",
@@ -539,25 +432,20 @@ const styles = StyleSheet.create({
         top: "30%",
     },
     acInfoContainer: {
-        // backgroundColor:"red",
+        position: "absolute",
         backgroundColor: "transparent",
         width: 152,
         height: 152,
-        // justifyContent:"center",
         alignItems: "center",
         borderRadius: 76,
-        position:"absolute",
     },
     acDegreeText: {
         fontSize: 55,
         color: "white",
-        // backgroundColor:"black",
         backgroundColor: "transparent",
         flex: 2,
         paddingTop: 35,
         lineHeight: 80,
-        // textAlign:'center',
-
     },
     acModeText: {
         fontWeight: "bold",
@@ -567,11 +455,8 @@ const styles = StyleSheet.create({
     acDegreeUnit: {
         fontSize: 25,
         fontWeight: "bold",
-        // backgroundColor:"red",
         position: "relative",
         color: "white",
-        // lineHeight:20,
-        // flex:1
     },
     acDegreeUnitContainer: {
         position: "absolute",
@@ -580,26 +465,23 @@ const styles = StyleSheet.create({
         left: "70%",
         top: "30%",
     },
-    moreInfoContainer:{
-        position:"absolute",
-        backgroundColor:"transparent",
-        width:100,
-        height:50,
-        bottom:180,
-        left:"5%",
-        // alignItems:"center",
-        marginBottom:20
-
-
+    moreInfoContainer: {
+        position: "absolute",
+        backgroundColor: "transparent",
+        width: 100,
+        height: 50,
+        bottom: 180,
+        left: "5%",
+        marginBottom: 20
     },
-    fanInfoContainer:{
+    fanInfoContainer: {
         // alignItems:"center",
     },
-    fanInfoText:{
+    fanInfoText: {
         padding: 4,
-        fontWeight:"bold",
-        color:"white",
-        fontSize:15
+        fontWeight: "bold",
+        color: "white",
+        fontSize: 15
     }
 
 });
