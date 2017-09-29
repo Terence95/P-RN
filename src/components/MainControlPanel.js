@@ -269,7 +269,7 @@ class SwiperComponent extends Component {
     render() {
 
 
-        let pageInfo = this.getPageInfo(this.getAcFunctions(11005));
+        let pageInfo = this.getPageInfo(this.getAcFunctions(11495));
 
         return (
             <View style={styles.controlPanel}>
