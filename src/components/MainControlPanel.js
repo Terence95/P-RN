@@ -161,7 +161,7 @@ class SwiperTouchBtn extends Component {
                                                   onPress={()=>{
                                         item.btnFunc();
                                     }}>
-                            <Image resizeMode="contain" source={item.btnImg} style={{opacity:item.btnDisabled? 0 : 1}}/>
+                            <Image resizeMode="contain" source={item.btnImg}/>
                         </TouchableOpacity>)
                     })
                 }
@@ -265,6 +265,8 @@ class SwiperComponent extends Component {
         }
         return btnGroupArr;
     }
+
+    
 
     render() {
 
