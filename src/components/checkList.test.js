@@ -79,7 +79,6 @@ export default class CheckListTest extends React.Component {
 
     componentWillMount() {
         this.prepareCheckListData();
-        alert(this.listArr);
     }
 
     render() {
