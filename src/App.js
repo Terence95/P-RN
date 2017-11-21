@@ -17,6 +17,8 @@ import Day4 from './components/Day4';
 import Day5 from './components/Day5';
 import Day6 from './components/Day6';
 import RnArt from './components/0-1RN-ART';
+import Day7 from './components/Day7component-correspond';
+import CheckList from './components/checkList.test';
 
 
 import {
@@ -52,6 +54,7 @@ export default class App extends React.Component {
                     <Scene key="day5" component={Day5} title="Day5"  hideNavBar="true"/>
                     <Scene key="day6" component={Day6} title="Day6"/>
                     <Scene key="rnart" component={RnArt} title="RnArt"/>
+                    <Scene key="checkList" component={CheckList} title="CheckList"/>
                 </Scene>
             </Router>
         )
